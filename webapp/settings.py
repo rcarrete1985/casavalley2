@@ -25,7 +25,8 @@ SECRET_KEY = '9$m2r*$xq*1u=j_y^x5he7c8rded^qmbjcz+w8ms8yf31&cy+y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['casavalley.us-east-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['casavalley.us-east-2.elasticbeanstalk.com',
+                 '127.0.0.1']
 
 
 # Application definition
@@ -76,8 +77,12 @@ WSGI_APPLICATION = 'webapp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER': 'TestAdmin',
+        'PASSWORD': 'NewAdmin1212',
+        'HOST': 'casavalley2.cdudxlhbkjbx.us-east-2.rds.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
