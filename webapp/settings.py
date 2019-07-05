@@ -25,7 +25,7 @@ SECRET_KEY = '9$m2r*$xq*1u=j_y^x5he7c8rded^qmbjcz+w8ms8yf31&cy+y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['casavalley.us-east-2.elasticbeanstalk.com']
 
 
 # Application definition
