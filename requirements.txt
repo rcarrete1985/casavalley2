@@ -26,8 +26,6 @@ selenium==3.141.0
 six==1.12.0
 sklearn==0.0
 soupsieve==1.8
-tangle==0.1.0
-untangle==1.1.1
 urllib3==1.24.1
 webdriver-manager==1.7
 xmltodict==0.12.0
