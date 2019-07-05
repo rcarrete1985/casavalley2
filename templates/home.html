@@ -1,0 +1,104 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+
+
+<div>
+  <br><br>
+  <h4 class="header">Add Property</h4><br>
+
+  <form method="post">
+
+    {% csrf_token %}
+
+
+    <table class="add_property">
+      <div class="fieldWrapper">
+        <tr>
+          <th>Label</th>
+          <th>Field</th>
+        </tr>
+        {# Include the visible fields #}
+        {% for field in form.visible_fields %}
+        <tr>
+          {{ field.errors }}
+          <td>
+            {{ field.label_tag }}
+          </td>
+          <td class="input_column">
+            {{ field }}
+          </td>
+        </tr>
+        {% endfor %}
+      </div>
+    </table>
+
+    <br>
+    <button id='add_button' name='add' type='submit'>Add</button>
+    <br>
+
+  </form>
+
+</div>
+
+
+
+
+<br><br>
+  <h4 class="header" id="watchlist">Watchlist</h4><br>
+<table class="add_property">
+  <tr>
+    <th>Street Address</th>
+    <th>Adjudged Value</th>
+    <th>CAD Value</th>
+    <th>Zesimate</th>
+    <th>Starting Bid</th>
+    <th>CV Estimate</th>
+    <th>Notes</th>
+    <th>Delete Property</th>
+  </tr>
+  {% for property in properties %}
+  <tr>
+    <td><a href="/home/{{property.pk}}#details">{{property.address}}</a></td>
+    <td>{{property.valuesAdjudged}}</td>
+    <td>{{property.valuesCAD}}</td>
+    <td>{{property.zestimate}}</td>
+    <td>{{property.startingBid}}</td>
+    <td>{{property.cvEstimate}}</td>
+    <td>{{property.notes}}</td>
+<td>
+    <form action="/home/delete/{{property.pk}}#watchlist"  method="POST">
+      {% csrf_token %}
+      <input class="btn btn-default btn-danger" name="home"  type="submit" value="Delete">
+    </form>
+
+</td>
+
+
+
+
+  </tr>
+  {% endfor %}
+
+
+</table>
+
+
+
+
+
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">login</a>
+{% endif %}
+
+{% block details %}
+{% endblock %}
+<br>
+<br>
+<br>
+<br>
+{% endblock %}
+
+

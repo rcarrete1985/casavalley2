@@ -1,0 +1,44 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block title %}Auctioned{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div>
+ <br><br>
+  <h4 class="header">Properties Previously Auctioned</h4><br>
+
+<table class="add_property">
+  <tr>
+    <th>Street Address</th>
+    <th>CV Estimate</th>
+    <th>Auction Actual</th>
+    <th>Delete</th>
+  {% for property in properties %}
+  <tr>
+    <td>{{property.address}}</td>
+    <td>{{property.cvEstimate}}</td>
+    <td>{{property.finalBid}}</td>
+
+  <td>
+    <form action="/home/delete/{{property.pk}}" method="POST">
+      {% csrf_token %}
+      <input class="btn btn-default btn-danger" type="submit" value="Delete">
+    </form>
+
+</td>
+
+
+  </tr>
+  {% endfor %}
+</table>
+</div>
+
+
+
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">login</a>
+{% endif %}
+{% endblock %}

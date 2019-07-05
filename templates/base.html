@@ -1,0 +1,154 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        #background {
+            background-color: #E9E7E7;
+            }
+
+        #nav-left-space-title{
+            height: 20px;
+            width: 20%;
+            background-color: #3C2C31;
+            float:left;
+            clear:none;
+            }
+
+        #nav-title {
+
+            color: #E9E7E7;
+            background-color: #3C2C31;
+            width: 100%;
+            clear:none;
+            }
+
+        #nav-left-space-links{
+            height: 35px;
+            width: 20%;
+            background-color: #EFD6AC;
+            float:left;
+            clear:none;
+            }
+
+        .nav-links {
+            color: #7B7584;
+            background-color: #EFD6AC;
+            float:left;
+            clear:none;
+            width: 10%;
+            height: 35px;
+            vertical-align: sub;
+            }
+
+        #nav-right-space-links {
+            height: 20px;
+            background-color: #EFD6AC;
+            float:left;
+            clear:none;
+            width:60%;
+            height: 35px;
+            }
+
+        .header {
+            width:100%;
+            text-align:center;
+            }
+
+        .add_property {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            color: #3C2C31;
+            ;
+        }
+
+        .add_property td, .add_property th {
+            border: 1px solid #7B7584;
+            padding: 8px;
+            width:12.5%;
+        }
+
+        .add_property tr:hover {
+            background-color: #EFD6AC;
+            }
+
+        .add_property th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: center;
+            background-color: #7B7584;
+            color: white;
+        }
+
+        .input_column * {
+            width:100%;
+        }
+
+        #add_button {
+           width: 50%;
+           float: right;
+           background-color: #EFD6AC;
+           display: block;
+        }
+
+        #update_button {
+           width: 50%;
+           float: right;
+           background-color: #EFD6AC;
+           display: block;
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+  <main>
+      <div id="background">
+
+          <div id="nav-left-space-title">
+
+          </div>
+
+          <div id="nav-title">
+              <h1>Casa Valley Properties</h1>
+          </div>
+
+          <div id="nav-left-space-links">
+
+          </div>
+
+          <div><a class = 'nav-links' href="{% url 'home' %}">Home</a>
+          </div>
+
+          <div><a class = 'nav-links' href="{% url 'auctioned' %}">Auctioned</a>
+          </div>
+
+          <div id="nav-right-space-links">
+          </div>
+
+
+
+          <div class =container>
+            {% block content %}
+            {% endblock %}
+          </div>
+
+        </div>
+
+  </main>
+
+</body>
+
+
+</html>

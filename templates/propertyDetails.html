@@ -1,0 +1,41 @@
+{% extends 'home.html' %}
+
+{% block details %}
+<div>
+  <br><br>
+
+  <h4 class="header" id="details">Property Details</h4><br>
+
+  <form method="post">
+
+    {% csrf_token %}
+
+
+    <table class="add_property">
+      <div class="fieldWrapper">
+        <tr>
+          <th>Label</th>
+          <th>Field</th>
+        </tr>
+        {# Include the visible fields #}
+        {% for field in detailform.visible_fields %}
+        <tr>
+          {{ field.errors }}
+          <td>
+            {{ field.label_tag }}
+          </td>
+          <td class="input_column">
+            {{ field }}
+          </td>
+        </tr>
+        {% endfor %}
+      </div>
+    </table>
+
+    <br>
+    <button id='update_button' name='update' type='submit'>Update</button>
+
+  </form>
+
+{% endblock %}
+</div>

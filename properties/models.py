@@ -1,0 +1,30 @@
+
+from django.db import models
+
+
+class Property(models.Model):
+    zillowID = models.CharField(max_length=50, null=True)
+    address = models.CharField(max_length=50, null=True)
+    city = models.CharField(max_length=50, null=True)
+    state = models.CharField(max_length=50, null=True)
+    account = models.CharField(max_length=50, null=True)
+    legalDescription = models.CharField(max_length=100, null=True)
+    livingSF = models.IntegerField(null=True)
+    landSF = models.IntegerField(null=True)
+    yearBuilt = models.IntegerField(null=True)
+    age = models.IntegerField(null=True)
+    ownerName = models.CharField(max_length=100, null=True)
+    homeStead = models.CharField(max_length=50, null=True)
+    subjectToNotIncludedInSale = models.IntegerField(null=True)
+    taxesCoveredInSuit = models.IntegerField(null=True)
+    totalTaxesOwed = models.IntegerField(null=True)
+    valuesAdjudged = models.IntegerField(null=True)
+    valuesLandCAD = models.IntegerField(null=True)
+    valuesBldgCAD = models.IntegerField(null=True)
+    valuesCAD = models.IntegerField(null=True)
+    startingBid = models.IntegerField(null=True)
+    notes = models.TextField(null=True)
+    finalBid = models.IntegerField(null=True)
+    cancelledBid = models.IntegerField(null=True)
+    cvEstimate = models.IntegerField(null=True)
+    zestimate = models.IntegerField(null=True)
